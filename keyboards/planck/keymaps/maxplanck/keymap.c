@@ -62,19 +62,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |   =  |   7  |   8  |   9  |  +   |
+ * |      |      |      |      |      |      |      |   =  |   7  |   8  |   9  |  -   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |      |      | Home | PDUP |      |      | Bksp |   4  |   6  |   6  |  -   |
+ * | Del  |      |      | Home | PDUP |      |      | Bksp |   4  |   6  |   6  |  +   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|      |      |  END | PGDN |      |      |      |   1  |   2  |   3  |  *   |
+ * | Shift|      |  Ins |  END | PGDN |      |      |      |   1  |   2  |   3  | Ent  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |   0  |   .  |  Ent |  /   |
+ * |      |      |      |      |      |             |      |   0  |   .  |   /  |  *   |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PEQL, KC_P7, KC_P8,   KC_P9,   KC_PMNS,
         KC_DEL,  XXXXXXX, XXXXXXX, KC_HOME, KC_PGUP, XXXXXXX, XXXXXXX, KC_BSPC, KC_P4, KC_P5,   KC_P6,   KC_PPLS,
-        KC_LSFT, XXXXXXX, XXXXXXX, KC_END,  KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1, KC_P2,   KC_P3,   RSFT_T(KC_PENT),
+        KC_LSFT, XXXXXXX, KC_INS,  KC_END,  KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1, KC_P2,   KC_P3,   RSFT_T(KC_PENT),
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, KC_P0, KC_PDOT, KC_PSLS, KC_PAST
 ),
 
