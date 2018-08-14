@@ -23,6 +23,7 @@ extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTZ,
+  _GAME,
   _LOWER,
   _RAISE,
   _FUN,
@@ -31,6 +32,7 @@ enum planck_layers {
 
 enum planck_keycodes {
   QWERTZ = SAFE_RANGE,
+  GAME,
   BACKLIT,
 };
 
@@ -112,13 +114,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_LGUI, KC_LALT, _______, _______, _______, _______, _______, KC_RALT, XXXXXXX, XXXXXXX, KC_RCTL
 ),
 
+/* Game
+ * ,-----------------------------------------------------------------------------------.
+ * |  ESC |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | TAB  |   Q  |   W  |   E  |   R  |      |      |      |      |  UP  |      |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shif |   A  |   S  |   D  |   F  |      |      |      |  <-  |  DN  |   -> |Ent/Sh|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Ctrl |  GUI | Alt  |  Fun | Lower|     Space   | Raise| ALT  |      |      | Ctrl |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_GAME] = LAYOUT_planck_grid(
+        KC_ESC,  KC_1,    KC_2,    KC_3, KC_4,  KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX,
+        KC_LSFT, KC_A,    KC_S,    KC_D, KC_F,  XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_RSFT,
+        KC_LCTL, KC_LGUI, KC_LALT, FUN,  LOWER, KC_SPC,  KC_SPC,  RAISE,   KC_RALT, XXXXXXX, XXXXXXX, KC_RCTL
+),
+
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset| Debug| RGB  | RGBM | RGBHI| RGBHD| RGBSI| RGBSD| RGBVI| RGBVD|      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      | Music|Aud on|Audoff|AGnorm|AGswap|      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      |      |      |
+ * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      | GAME | QWERT|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | BSTEP| BTOG | BBRT |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -126,8 +146,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT_planck_grid(
         XXXXXXX, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, XXXXXXX,
         XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, XXXXXXX, XXXXXXX, XXXXXXX,
-        BL_STEP, BL_TOGG, BL_BRTG, XXXXXXX, _______, _______, _______, _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, XXXXXXX, GAME,    QWERTZ,
+        BACKLIT, BL_TOGG, BL_BRTG, XXXXXXX, _______, _______, _______, _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
 )
 
 
@@ -143,6 +163,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTZ);
+      }
+      return false;
+      break;
+    case GAME:
+      if (record->event.pressed) {
+        print("mode just switched to game and this is a huge string\n");
+        set_single_persistent_default_layer(_GAME);
       }
       return false;
       break;
