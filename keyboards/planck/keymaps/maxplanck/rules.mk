@@ -1,2 +1,3 @@
 SRC += muse.c
+EXTRAKEY_ENABLE = no
 BACKLIGHT_ENABLE = yes
