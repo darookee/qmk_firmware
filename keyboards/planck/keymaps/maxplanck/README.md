@@ -83,8 +83,8 @@ The F-Keys are on the Fun layer. That is it's sole purpose...
 |------+------+------+------+------+-------------+------+------+------+------+------|
 |      |      | Music|Aud on|Audoff|AGnorm|AGswap|      |      |      |      |      |
 |------+------+------+------+------+------|------+------+------+------+------+------|
-|      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      | GAME | QWERT|
+|      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      |      |      |
 |------+------+------+------+------+------+------+------+------+------+------+------|
-| BSTEP| BTOG | BBRT |      |      |             |      |      |      |      |      |
+| BSTEP| BTOG | BBRT |      |      | GAME |QWERTZ|      |      |      |      |      |
 `-----------------------------------------------------------------------------------'
 ```

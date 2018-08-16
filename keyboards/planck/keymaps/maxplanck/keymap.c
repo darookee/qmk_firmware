@@ -138,16 +138,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      | Music|Aud on|Audoff|AGnorm|AGswap|      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      | GAME | QWERT|
+ * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | BSTEP| BTOG | BBRT |      |      |             |      |      |      |      |      |
+ * | BSTEP| BTOG | BBRT |      |      | GAME |QWERTZ|      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
         XXXXXXX, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, XXXXXXX,
         XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, XXXXXXX, GAME,    QWERTZ,
-        BACKLIT, BL_TOGG, BL_BRTG, XXXXXXX, _______, _______, _______, _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, XXXXXXX, XXXXXXX, XXXXXXX,
+        BACKLIT, BL_TOGG, BL_BRTG, XXXXXXX, _______, GAME,    QWERTZ,  _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
 )
 
 
