@@ -82,17 +82,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ^  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |   |  |   ´  |   {  |   [  |   (  |   )  |   ]  |   }  |   '  |   "  |  `   |
+ * | Del  |   |  |   -  |   {  |   [  |   (  |   )  |   ]  |   }  |   '  |   "  |  `   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   \  |   #  |   <  |   ;  |   _  |   -  |   :  |   >  |   ~  |   /  | Ent  |
+ * | Shift|   \  |   ?  |   $  |   *  |   #  |   <  |   =  |   >  |   ~  |   /  | Ent  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl |  GUI | Alt  |  Fun | Lower|     Space   | Raise| ALT  |      |      | Ctrl |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_planck_grid(
         KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-        KC_DEL,  DE_PIPE, DE_ACUT, DE_LCBR, DE_LBRC, DE_LPRN, DE_RPRN, DE_RBRC, DE_RCBR, DE_QUOT, DE_DQOT, DE_GRV,
-        KC_LSFT, DE_BSLS, DE_HASH, DE_LESS, DE_COLN, DE_UNDS, DE_MINS, DE_SCLN, DE_MORE, DE_TILD, DE_SLSH, RSFT_T(KC_ENT),
+        KC_DEL,  DE_PIPE, DE_MINS, DE_LCBR, DE_LBRC, DE_LPRN, DE_RPRN, DE_RBRC, DE_RCBR, DE_QUOT, DE_DQOT, DE_GRV,
+        KC_LSFT, DE_BSLS, DE_QST,  DE_DLR,  DE_ASTR, DE_HASH, DE_LESS, DE_EQL,  DE_MORE, DE_TILD, DE_SLSH, RSFT_T(KC_ENT),
         KC_LCTL, KC_LGUI, KC_LALT, _______, _______, _______, _______, _______, KC_RALT, XXXXXXX, XXXXXXX, KC_RCTL
 ),
 
@@ -140,16 +140,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof| TERON| TEROF|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | BSTEP| BTOG | BBRT |      |      | GAME |QWERTZ|      |      |      |      |      |
+ * | BSTEP| BTOG |      |      |      | GAME |QWERTZ|      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
         XXXXXXX, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, XXXXXXX,
         XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, XXXXXXX, XXXXXXX, XXXXXXX,
-        BACKLIT, BL_TOGG, BL_BRTG, XXXXXXX, _______, GAME,    QWERTZ,  _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+        BACKLIT, BL_TOGG, XXXXXXX, XXXXXXX, _______, GAME,    QWERTZ,  _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
 )
-
 
 };
 
@@ -161,14 +160,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTZ:
       if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
+        print("mode switched to qwerty\n");
         set_single_persistent_default_layer(_QWERTZ);
       }
       return false;
       break;
     case GAME:
       if (record->event.pressed) {
-        print("mode just switched to game and this is a huge string\n");
+        print("mode switched to game\n");
         set_single_persistent_default_layer(_GAME);
       }
       return false;
