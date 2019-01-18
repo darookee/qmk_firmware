@@ -1,5 +1,6 @@
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
+#define AUDIO_CLICKY
 
 #include "config_common.h"
 
@@ -8,6 +9,13 @@
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
                                   SONG(ONE_UP_SOUND) \
                                 }
+#ifdef AUDIO_CLICKY
+    #define AUDIO_CLICKY_FREQ_DEFAULT 261.63f
+    #define AUDIO_CLICKY_FREQ_MIN 65.41f
+    #define AUDIO_CLICKY_FREQ_MAX 1046.5f
+    #define AUDIO_CLICKY_FREQ_FACTOR 1.61803f // golden ratio
+    #define AUDIO_CLICKY_FREQ_RANDOMNESS 17.0f
+#endif
 #endif
 
 /*

@@ -1,3 +1,4 @@
 SRC += muse.c
 EXTRAKEY_ENABLE = no
 BACKLIGHT_ENABLE = yes
+AUDIO_CLICKY = yes
