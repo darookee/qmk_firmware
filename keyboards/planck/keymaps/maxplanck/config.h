@@ -2,6 +2,8 @@
 #define CONFIG_USER_H
 #define AUDIO_CLICKY
 
+#define TAPPING_FORCE_HOLD
+
 #include "config_common.h"
 
 #ifdef AUDIO_ENABLE
